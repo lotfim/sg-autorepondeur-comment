@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -20,7 +19,13 @@
  * @subpackage Sg_Autorepondeur_Comment/admin
  * @author     Lotfi MANSEUR <lotfi.manseur@gmail.com>
  */
+
+require_once plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'sgarc_settings.php';
+
 class Sg_Autorepondeur_Comment_Admin {
+
+
+    private $settings;
 
 	/**
 	 * The ID of this plugin.
@@ -51,6 +56,7 @@ class Sg_Autorepondeur_Comment_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->settings = new Sgarc_settings($plugin_name);
 
 	}
 
@@ -99,5 +105,16 @@ class Sg_Autorepondeur_Comment_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/sg-autorepondeur-comment-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+	public function get_settings(){
+	    return $this->settings;
+    }
+
+    function load_text_domain() {
+
+       load_plugin_textdomain( $this->plugin_name, false, WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'sg-autorepondeur-comment' . DIRECTORY_SEPARATOR . 'languages' ) ;
+
+    }
+
 
 }

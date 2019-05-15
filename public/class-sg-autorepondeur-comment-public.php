@@ -20,9 +20,12 @@
  * @subpackage Sg_Autorepondeur_Comment/public
  * @author     Lotfi MANSEUR <lotfi.manseur@gmail.com>
  */
+require_once plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'sgarc_comment_display.php';
 class Sg_Autorepondeur_Comment_Public {
 
-	/**
+	protected $agreementBox;
+
+    /**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
@@ -51,6 +54,8 @@ class Sg_Autorepondeur_Comment_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+
+		$this->agreementBox = new Sgarc_comment_display($this->plugin_name);
 
 	}
 
@@ -99,5 +104,9 @@ class Sg_Autorepondeur_Comment_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/sg-autorepondeur-comment-public.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+	public function getAgreementBox(){
+	    return $this->agreementBox;
+    }
 
 }

@@ -1,0 +1,3 @@
+msgid "Sg-autorepondeur user number"
+msgstr "sds"
+

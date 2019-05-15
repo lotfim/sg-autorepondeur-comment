@@ -2,3 +2,9 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+.sgarc_form_table th {
+    min-width: 230px;
+}
+.sgar_comment_text_field{
+    min-width: 700px;
+}

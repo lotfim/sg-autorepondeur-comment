@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.2\n"
+
+msgid "Sg-Autorepondeur Comment Settings"
+msgstr "Règlages Sg-Autorépondeur Comment"
+
+msgid "Sg-autorepondeur user number"
+msgstr "Numéro d'utilisateur SG-Autorépondeur"
+
+msgid "Sg-autorepondeur list number"
+msgstr "Numéro de la liste SG-Autorépondeur"
+
+
+msgid "Get the comment author's email only with his agreement"
+msgstr "Accord de l'auteur du commentaire pour rejoindre votre liste"
+
+msgid "Get the comment author's email only with his agreement"
+msgstr "Accord de l'auteur du commentaire pour rejoindre votre liste"
+
+msgid "Get the comment author's email only with his agreement"
+msgstr "Accord de l'auteur du commentaire pour rejoindre votre liste"
+
+msgid "Get the comment author's email only with his agreement"
+msgstr "Accord de l'auteur du commentaire pour rejoindre votre liste"
