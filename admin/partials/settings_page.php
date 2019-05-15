@@ -3,6 +3,7 @@
 
     $settings = get_option($this->plugin_name);
     $userNumber =(isset($settings['user_number'])) ? $settings['user_number'] : '';
+    $activationCode =(isset($settings['activation_code'])) ? $settings['activation_code'] : '';
     $listNumber =(isset($settings['list_number'])) ? $settings['list_number'] : '';
     $gpdrEnabled = (isset($settings['gpdr_enabled']) && $settings['gpdr_enabled']) ? 'checked' : '';
     $gpdrText = (isset($settings['gpdr_text'])) ? $settings['gpdr_text'] : '';
@@ -21,6 +22,12 @@
         <fieldset>
             <label for="<?php echo $this->plugin_name; ?>-user_number"><?php echo _e('Sg-autorepondeur user number', $this->plugin_name); ?>:</label>
             <input type="text" id="<?php echo $this->plugin_name; ?>-user_number" name="<?php echo $this->plugin_name; ?>[user_number]" value="<?php echo $userNumber; ?>"/>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <label for="<?php echo $this->plugin_name; ?>-activation_code"><?php echo _e('Activation code', $this->plugin_name); ?>:</label>
+            <input type="text" id="<?php echo $this->plugin_name; ?>-activation_code" name="<?php echo $this->plugin_name; ?>[activation_code]" value="<?php echo $activationCode; ?>"/>
         </fieldset>
         <br>
 

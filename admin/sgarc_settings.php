@@ -25,6 +25,7 @@ class Sgarc_settings{
     public function validate($input){
         $valid = array();
         $valid['user_number'] = esc_html($input['user_number']);
+        $valid['activation_code'] = esc_html($input['activation_code']);
         $valid['list_number'] = esc_html($input['list_number']);
         $valid['gpdr_enabled'] = (isset($input['gpdr_enabled']) ) ? 1 : 0;
         $valid['gpdr_text'] = esc_html($input['gpdr_text']);
