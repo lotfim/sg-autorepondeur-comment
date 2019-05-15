@@ -30,3 +30,7 @@
 	 */
 
 })( jQuery );
+
+var commentForm = document.getElementById('commentform');
+if(commentForm != null)
+	commentForm.removeAttribute('novalidate');

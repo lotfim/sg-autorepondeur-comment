@@ -101,12 +101,16 @@ class Sg_Autorepondeur_Comment_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/sg-autorepondeur-comment-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/sg-autorepondeur-comment-public.js', array( 'jquery' ), $this->version, true );
 
 	}
 
 	public function getAgreementBox(){
 	    return $this->agreementBox;
+    }
+
+    public function disable_html5_support(){
+
     }
 
 }
