@@ -1,12 +1,16 @@
 <?php
 
+require_once plugin_dir_path(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Sgarc_Features.php';
 class Sgarc_settings{
 
     protected $plugin_name;
 
+    protected $sgarc_features;
+
     public function __construct($plugin_name)
     {
         $this->plugin_name = $plugin_name;
+        $this->sgarc_features = new Sgarc_Features($this->plugin_name);
     }
 
     public function add_options_page(){
@@ -24,12 +28,12 @@ class Sgarc_settings{
 
     public function validate($input){
         $valid = array();
-        $valid['user_number'] = esc_html($input['user_number']);
-        $valid['activation_code'] = esc_html($input['activation_code']);
-        $valid['list_number'] = esc_html($input['list_number']);
-        $valid['gpdr_enabled'] = (isset($input['gpdr_enabled']) ) ? 1 : 0;
-        $valid['gpdr_text'] = esc_html($input['gpdr_text']);
-        $valid['gpdr_required_to_submit_comment'] = (isset($input['gpdr_required_to_submit_comment']) ) ? 1 : 0;
+        $valid[Sgarc_Features::USER_ID] = esc_html($input[Sgarc_Features::USER_ID]);
+        $valid[Sgarc_Features::ACTIVATION_CODE] = esc_html($input[Sgarc_Features::ACTIVATION_CODE]);
+        $valid[Sgarc_Features::LIST_NUMBER] = esc_html($input[Sgarc_Features::LIST_NUMBER]);
+        $valid[Sgarc_Features::GPDR_ENABLED] = (isset($input[Sgarc_Features::GPDR_ENABLED]) ) ? 1 : 0;
+        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT] = esc_html($input[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT]);
+        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED] = (isset($input[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED]) ) ? 1 : 0;
         return $valid;
     }
 }
