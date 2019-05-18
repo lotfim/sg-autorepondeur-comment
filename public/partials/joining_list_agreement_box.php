@@ -1,8 +1,9 @@
 <?php
     $agreement_required = ($this->sgarc_features->getAcceptingConditionsRequired()) ? 'required' : '';
+    $id_name_attribute = Sgarc_CommentHandler::ACCEPTING_TO_JOIN_REQUIRED;
 ?>
 <p>
-    <input type="checkbox" id="gpdr_required_to_submit_comment" name="gpdr_required_to_submit_comment" <?php echo $agreement_required; ?>>
-    <label for="gpdr_required_to_submit_comment"><?php echo esc_html($this->sgarc_features->getAcceptingConditionsText()) ; ?></label>
+    <input type="checkbox" id="<?php echo esc_attr($id_name_attribute); ?>" name="<?php echo  esc_attr($id_name_attribute); ?>" <?php echo $agreement_required; ?>>
+    <label for="<?php echo esc_attr($id_name_attribute); ?>"><?php echo esc_html($this->sgarc_features->getAcceptingConditionsText()) ; ?></label>
 </p>
 

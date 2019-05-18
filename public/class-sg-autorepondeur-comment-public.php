@@ -21,9 +21,13 @@
  * @author     Lotfi MANSEUR <lotfi.manseur@gmail.com>
  */
 require_once plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'sgarc_comment_display.php';
+require_once plugin_dir_path(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Sgarc_CommentHandler.php';
+
 class Sg_Autorepondeur_Comment_Public {
 
 	protected $agreementBox;
+
+	protected $comment_handler;
 
     /**
 	 * The ID of this plugin.
@@ -56,8 +60,17 @@ class Sg_Autorepondeur_Comment_Public {
 		$this->version = $version;
 
 		$this->agreementBox = new Sgarc_comment_display($this->plugin_name);
+		$this->comment_handler = new Sgarc_CommentHandler($this->plugin_name);
 
 	}
+
+    /**
+     * @return Sgarc_CommentHandler
+     */
+    public function getCommentHandler(): Sgarc_CommentHandler
+    {
+        return $this->comment_handler;
+    }
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.

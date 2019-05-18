@@ -115,6 +115,10 @@ class Sg_Autorepondeur_Comment_Admin {
        load_plugin_textdomain( $this->plugin_name, false, WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'sg-autorepondeur-comment' . DIRECTORY_SEPARATOR . 'languages' ) ;
 
     }
+    public function handle_comment($comment_id){
+	    var_dump(get_comment($comment_id));
+	    die();
+    }
 
 
 }

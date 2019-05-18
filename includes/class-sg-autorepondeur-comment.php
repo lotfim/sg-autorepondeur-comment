@@ -154,6 +154,7 @@ class Sg_Autorepondeur_Comment {
 
 		$plugin_admin = new Sg_Autorepondeur_Comment_Admin( $this->get_plugin_name(), $this->get_version() );
 
+
         $this->loader->add_action( 'admin_init', $plugin_admin->get_settings(), 'register_settings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin->get_settings(), 'add_options_page' );
         $this->loader->add_action( 'plugins_loaded', $plugin_admin, 'load_text_domain' );
@@ -173,6 +174,8 @@ class Sg_Autorepondeur_Comment {
 
 		$plugin_public = new Sg_Autorepondeur_Comment_Public( $this->get_plugin_name(), $this->get_version() );
 
+        $this->loader->add_action('comment_post', $plugin_public->getCommentHandler(), 'add_comment_meta');
+        $this->loader->add_action('comment_post', $plugin_public->getCommentHandler(), 'onSubmit_comment');
 		$this->loader->add_action('comment_form_after_fields', $plugin_public->getAgreementBox(), 'complete_comment_display');
 		$this->loader->add_action( 'wp_footer', $plugin_public, 'disable_html5_support' );
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
