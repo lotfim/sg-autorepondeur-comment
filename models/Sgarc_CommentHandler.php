@@ -1,5 +1,6 @@
 <?php
 
+require_once plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'API_SG.php';
 
 class Sgarc_CommentHandler
 {
@@ -14,8 +15,15 @@ class Sgarc_CommentHandler
 
 
 
-    public function add_to_list($email){
-        //Call to the API
+    public function add_to_list($comment){
+        $sgarcFeatures = new Sgarc_Features($this->plugin_name);
+        if($sgarcFeatures->isValid()){
+            $sgarApi = new API_SG($sgarcFeatures->getUserId(), $sgarcFeatures->getActivationCode());
+            $sgarApi->set('prenom',  $comment->comment_author)
+                    ->set('email', $comment->comment_author_email)
+                    ->set('ip', $comment->comment_author_IP);
+            $sgarApi->call('set_subscriber');
+        }
     }
 
     public function onSubmit_comment($comment_id){
@@ -24,7 +32,9 @@ class Sgarc_CommentHandler
         $comment = get_comment($comment_id);
         if(($settings->isValid() && !$settings->acceptingConditionsIsCompleted()) ||
             ($settings->isValid() && $settings->acceptingConditionsIsCompleted() && 'on' === $accetpingJoiningList)){
-            $this->add_to_list($comment->comment_author_email);
+            $this->add_to_list($comment);
+
+
         }
 
     }
