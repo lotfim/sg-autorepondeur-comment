@@ -1,4 +1,5 @@
 <?php
+
     $agreement_required = ($this->sgarc_features->getAcceptingConditionsRequired()) ? 'required' : '';
     $id_name_attribute = Sgarc_CommentHandler::ACCEPTING_TO_JOIN_REQUIRED;
 ?>

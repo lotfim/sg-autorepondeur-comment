@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
 
 /**
  * Define the internationalization functionality

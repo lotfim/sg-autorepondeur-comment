@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
 
 require_once plugin_dir_path(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Sgarc_Features.php';
 class Sgarc_settings{

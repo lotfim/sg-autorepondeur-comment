@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
 
 require_once plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'API_SG.php';
 

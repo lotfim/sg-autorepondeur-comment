@@ -1,9 +1,10 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
 
 /**
  * Fired during plugin activation
  *
- * @link       https://good-plans.com
+ * @link       https://lotmantech.com
  * @since      1.0.0
  *
  * @package    Sg_Autorepondeur_Comment

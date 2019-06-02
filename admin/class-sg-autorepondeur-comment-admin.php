@@ -1,8 +1,10 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
+
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://good-plans.com
+ * @link       https://lotmantech.com
  * @since      1.0.0
  *
  * @package    Sg_Autorepondeur_Comment
@@ -115,10 +117,4 @@ class Sg_Autorepondeur_Comment_Admin {
        load_plugin_textdomain( $this->plugin_name, false, WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'sg-autorepondeur-comment' . DIRECTORY_SEPARATOR . 'languages' ) ;
 
     }
-    public function handle_comment($comment_id){
-	    var_dump(get_comment($comment_id));
-	    die();
-    }
-
-
 }

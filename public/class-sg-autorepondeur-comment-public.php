@@ -1,9 +1,10 @@
 <?php
+defined( 'ABSPATH' ) or die( 'Forbidden!' );
 
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://good-plans.com
+ * @link       https://lotmantech.com
  * @since      1.0.0
  *
  * @package    Sg_Autorepondeur_Comment
