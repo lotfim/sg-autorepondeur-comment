@@ -31,18 +31,14 @@ class API_SG
     public function call($action)
     {
         $this->datas['action'] = $action;
+        $req = wp_remote_post($this->apiUrl, array(
+            'method' => 'POST',
+            'sslverify' => false,
+            'headers' => array(),
+            'cookies' => array(),
+            'body' => $this->datas
+        ));
 
-        $handle = curl_init($this->apiUrl);
-        curl_setopt($handle, CURLOPT_POST, true);
-        curl_setopt($handle, CURLOPT_POSTFIELDS, http_build_query($this->datas));
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-        
-		$req = curl_exec($handle);
-		curl_close($handle);
-		
-        /*if ($req === FALSE) {
-            throw new Exception('Aucun résultat renvoyé par SG-Autorépondeur');
-        }*/
         return $req;
     }
 }
