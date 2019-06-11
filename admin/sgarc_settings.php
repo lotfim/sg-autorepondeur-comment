@@ -29,12 +29,12 @@ class Sgarc_settings{
 
     public function validate($input){
         $valid = array();
-        $valid[Sgarc_Features::USER_ID] = esc_html($input[Sgarc_Features::USER_ID]);
-        $valid[Sgarc_Features::ACTIVATION_CODE] = esc_html($input[Sgarc_Features::ACTIVATION_CODE]);
-        $valid[Sgarc_Features::LIST_NUMBER] = esc_html($input[Sgarc_Features::LIST_NUMBER]);
+        $valid[Sgarc_Features::USER_ID] = sanitize_text_field($input[Sgarc_Features::USER_ID]);
+        $valid[Sgarc_Features::ACTIVATION_CODE] = sanitize_text_field($input[Sgarc_Features::ACTIVATION_CODE]);
+        $valid[Sgarc_Features::LIST_NUMBER] = sanitize_text_field($input[Sgarc_Features::LIST_NUMBER]);
         $valid[Sgarc_Features::GPDR_ENABLED] = (isset($input[Sgarc_Features::GPDR_ENABLED]) ) ? 1 : 0;
-        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT] = esc_html($input[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT]);
-        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED] = (isset($input[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED]) ) ? 1 : 0;
+        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT] = sanitize_text_field($input[Sgarc_Features::ACCEPTING_CONDITIONS_TEXT]);
+        $valid[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED] = (isset($input[Sgarc_Features::ACCEPTING_CONDITIONS_REQUIRED])) ? 1 : 0;
         return $valid;
     }
 }

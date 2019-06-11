@@ -42,7 +42,8 @@ class Sgarc_CommentHandler
 
     public function add_comment_meta($comment_id){
         if(isset($_POST[self::ACCEPTING_TO_JOIN_REQUIRED])){
-            add_comment_meta($comment_id, self::ACCEPTING_TO_JOIN_REQUIRED, $_POST[self::ACCEPTING_TO_JOIN_REQUIRED]);
+        	$acceptingToJoin = sanitize_key($_POST[self::ACCEPTING_TO_JOIN_REQUIRED]);
+            add_comment_meta($comment_id, self::ACCEPTING_TO_JOIN_REQUIRED, $acceptingToJoin);
 
         }
     }
